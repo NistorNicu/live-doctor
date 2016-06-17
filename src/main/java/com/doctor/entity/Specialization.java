@@ -1,14 +1,13 @@
 package com.doctor.entity;
 
-import com.google.common.base.Objects;
-
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
- * Created by Nicu on 6/16/2016.
+ * Created by Nicu on 6/17/2016.
  */
-@Entity(name = "country")
-public class Country {
+@Entity(name = "specialization")
+public class Specialization {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -36,13 +35,13 @@ public class Country {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Language language = (Language) o;
-        return Objects.equal(getId(), language.getId()) &&
-                Objects.equal(getName(), language.getName());
+        Specialization that = (Specialization) o;
+        return Objects.equals(getId(), that.getId()) &&
+                Objects.equals(getName(), that.getName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(getId(), getName());
+        return Objects.hash(getId(), getName());
     }
 }
