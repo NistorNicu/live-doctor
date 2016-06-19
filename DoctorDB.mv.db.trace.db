@@ -1,9 +1,0 @@
-06-17 14:25:36 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Table "DOCTORS" not found; SQL statement:
-SELECT  * from doctors [42102-176]
-06-17 14:25:46 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Table "DOCTOR" not found; SQL statement:
-SELECT  * from doctor [42102-176]
-06-17 14:26:21 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Table "DOCTOR" not found; SQL statement:
-SELECT  * from doctor [42102-176]
