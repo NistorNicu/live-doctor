@@ -1,0 +1,10 @@
+<div>
+    <span>Name</span>
+    <select id="pacientNameSelect"  >
+        <option ng-repeat="pacient in pacients"  value="{{pacient.id}}">
+            {{pacient.name}}
+        </option>
+    </select>
+    {{infoText}}
+
+</div>
