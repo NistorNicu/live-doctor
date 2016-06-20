@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="text-center well col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+        <form name="signinForm" class="form-vertical">
+            <select name="pacientNameSelect" ng-model="doctorId" required class="form-control">
+                <option value="" disabled selected>Select from existing doctors</option>
+                <option ng-repeat="doctor in doctors" value="{{doctor.id}}">
+                    {{doctor.name}}
+                </option>
+            </select>
+            <br>
+            <input class="btn btn-primary btn-block" ng-click="signin(doctorId)" value="ENTER"
+                   ng-disabled="!signinForm.$valid">
+        </form>
+
+
+    </div>
+</div>
+
+<div class="row text-center ">
+    <h1 class="text-success"><em>Or create a new one</em></h1>
+    <br>
+</div>
+
+<div class="row">
+    <div class="text-center well col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+        <form class="form-vertical" name="newPacientForm">
+            <fieldset>
+                <input id="doctorId" class="form-control" name="name" type="text" placeholder="Name"
+                       ng-model="newDoctor.name" required><br>
+
+
+                <!--<span ng-show="newPacientForm.name.$dirty && !newPacientForm.name.$valid">Required!</span><br>-->
+
+                <select name="countrySelect" ng-model="newDoctor.countryId" required class="form-control">
+                    <option value="" disabled selected>Select your Country</option>
+                    <option ng-repeat="country in countries" value="{{country.id}}">
+                        {{country.name}}
+                    </option>
+                </select><br>
+
+                <select name="languageSelect" ng-model="newDoctor.languageId" required class="form-control">
+                    <option value="" disabled selected>Select your language</option>
+                    <option ng-repeat="language in languages" value="{{language.id}}">
+                        {{language.name}}
+                    </option>
+                </select><br>
+
+                <select name="specializationSelect" ng-model="newDoctor.specializationId" required class="form-control">
+                    <option value="" disabled selected>Select your specialization</option>
+                    <option ng-repeat="specialization in specializations" value="{{specialization.id}}">
+                        {{specialization.name}}
+                    </option>
+                </select><br>
+
+
+                <input type="button" class="btn btn-primary btn-block" value="CREATE AND ENTER"
+                       ng-click="signupDoctor(newDoctor)" ng-disabled="!newPacientForm.$valid">
+            </fieldset>
+        </form>
+    </div>
+</div>
+

@@ -33,4 +33,9 @@ public class DoctorService implements DoctorServiceApi {
     public List<Doctor> findEligibleDoctors(Consultation consultation) {
         return doctorRepository.findAllBySpecializationAndLanguage(consultation.getSpecialization(), consultation.getPacient().getLanguage());
     }
+
+    @Override
+    public List<Doctor> getRegistredDoctors() {
+        return doctorRepository.findAll();
+    }
 }

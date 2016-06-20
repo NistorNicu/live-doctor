@@ -24,7 +24,6 @@ import java.util.logging.Logger;
 @RestController
 public class ConsultationController {
 
-    private final static List<SseEmitter> sseEmitterList = new ArrayList();
 
     @Autowired
     private ConsultationServiceApi consultationServiceApi;

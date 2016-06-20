@@ -15,4 +15,6 @@ public interface DoctorServiceApi {
     Doctor addDoctor(DoctorSignupView doctor);
 
     List<Doctor> findEligibleDoctors(Consultation consultation);
+
+    List<Doctor> getRegistredDoctors();
 }

@@ -9,14 +9,14 @@ public class DoctorSignupView {
     private String name;
     private Long countryId;
     private Long languageId;
-    private Long specializatioId;
+    private Long specializationId;
 
-    public Long getSpecializatioId() {
-        return specializatioId;
+    public Long getSpecializationId() {
+        return specializationId;
     }
 
-    public void setSpecializatioId(Long specializatioId) {
-        this.specializatioId = specializatioId;
+    public void setSpecializationId(Long specializationId) {
+        this.specializationId = specializationId;
     }
 
     public String getName() {
@@ -51,11 +51,11 @@ public class DoctorSignupView {
         return Objects.equals(getName(), that.getName()) &&
                 Objects.equals(getCountryId(), that.getCountryId()) &&
                 Objects.equals(getLanguageId(), that.getLanguageId()) &&
-                Objects.equals(getSpecializatioId(), that.getSpecializatioId());
+                Objects.equals(getSpecializationId(), that.getSpecializationId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getCountryId(), getLanguageId(), getSpecializatioId());
+        return Objects.hash(getName(), getCountryId(), getLanguageId(), getSpecializationId());
     }
 }

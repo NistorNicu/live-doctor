@@ -6,14 +6,14 @@ import com.doctor.repository.CountryRepository;
 import com.doctor.service.impl.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by Nicu on 6/17/2016.
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/doctor")
 public class DoctorController {
@@ -28,5 +28,11 @@ public class DoctorController {
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     Doctor signupDoctor(@RequestBody DoctorSignupView doctorView){
        return doctorService.addDoctor(doctorView);
+    }
+
+    @RequestMapping( method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    List<Doctor> getRegistredDoctors(){
+        return doctorService.getRegistredDoctors();
     }
 }

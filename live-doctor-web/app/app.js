@@ -12,7 +12,8 @@ angular.module('livedoctorapp', [
     "countryPath": "/info/country",
     "languagePath": "/info/language",
     "specializationPath": "/info/specialization",
-    "consultationPath": "/consultation"
+    "consultationPath": "/consultation",
+    "doctorPath": "/doctor"
 }).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
 

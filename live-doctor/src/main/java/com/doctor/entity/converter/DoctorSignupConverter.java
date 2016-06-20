@@ -28,7 +28,7 @@ public class DoctorSignupConverter extends Converter<DoctorSignupView, Doctor> {
         d.setName(doctorSignupView.getName());
         d.setCountry(countryRepository.findOne(doctorSignupView.getCountryId()));
         d.setLanguage(languageReposiltory.findOne(doctorSignupView.getLanguageId()));
-        d.setSpecialization(specializationRepository.findOne(doctorSignupView.getSpecializatioId()));
+        d.setSpecialization(specializationRepository.findOne(doctorSignupView.getSpecializationId()));
         return d;
     }
 
