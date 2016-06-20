@@ -19,6 +19,7 @@ import java.util.logging.Logger;
 /**
  * Created by Nicu on 6/17/2016.
  */
+@CrossOrigin
 @RequestMapping("/consultation")
 @RestController
 public class ConsultationController {
@@ -37,6 +38,12 @@ public class ConsultationController {
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     Consultation getConsultation(@RequestParam(name = "id") Long id)  {
         return consultationServiceApi.getConsultation(id);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @Deprecated
+    List<Consultation> getConsultations()  {
+        return consultationServiceApi.getAllConsultations();
     }
 
 }

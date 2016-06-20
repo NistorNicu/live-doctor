@@ -53,4 +53,9 @@ public class ConsultationService implements ConsultationServiceApi {
             throw new EntityNotFoundException("No consultation wit id : " + id);
         }
     }
+
+    @Override
+    public List<Consultation> getAllConsultations() {
+        return consultationRepository.findAll();
+    }
 }

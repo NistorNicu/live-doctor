@@ -8,6 +8,8 @@ import com.doctor.service.api.PacientServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by Nicu on 6/17/2016.
  */
@@ -23,5 +25,10 @@ public class PacientService implements PacientServiceApi {
     @Override
     public Pacient addPacient(PacientSignupView pacientView) {
         return pacientRepository.saveAndFlush(pacientSignupConverter.convert(pacientView));
+    }
+
+    @Override
+    public List<Pacient> getAllPacients() {
+        return pacientRepository.findAll();
     }
 }

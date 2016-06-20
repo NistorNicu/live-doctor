@@ -5,16 +5,14 @@ import com.doctor.entity.Language;
 import com.doctor.entity.Specialization;
 import com.doctor.service.api.InfoServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 /**
  * Created by Nicu on 6/16/2016.
  */
+@CrossOrigin
 @RestController
 @RequestMapping(path = "/info")
 public class PersonalInformationController {
