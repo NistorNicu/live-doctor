@@ -1,6 +1,7 @@
 package com.doctor.service.api;
 
 import com.doctor.entity.Consultation;
+import com.doctor.entity.view.ConsultationPacientView;
 import com.doctor.entity.view.CreateConsultationView;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  */
 public interface ConsultationServiceApi {
 
-    void createConsultation(CreateConsultationView consultationView);
+    ConsultationPacientView createConsultation(CreateConsultationView consultationView);
 
     Consultation getConsultation(Long id);
 

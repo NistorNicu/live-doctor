@@ -5,5 +5,11 @@
   <div class="text-center col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3  col-xs-8 col-xs-offset-2">
     <div id="chatForm" >
     </div>
+    <div>
+      <textarea ng-model = message ></textarea>
+      <input type="button" class="btn btn-primary btn-block" value="SEND"
+             ng-click="sendMessage(message)">
+    </div>
+    {{message}}
   </div>
 </div>

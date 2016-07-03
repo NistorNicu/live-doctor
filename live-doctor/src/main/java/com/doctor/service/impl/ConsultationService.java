@@ -3,11 +3,13 @@ package com.doctor.service.impl;
 import com.doctor.entity.Consultation;
 import com.doctor.entity.Doctor;
 import com.doctor.entity.converter.CreateConsultaionConverter;
+import com.doctor.entity.view.ConsultationPacientView;
 import com.doctor.entity.view.CreateConsultationView;
 import com.doctor.repository.ConsultationRepository;
 import com.doctor.service.api.ConsultationServiceApi;
 import com.doctor.service.api.ConsultationSessionHandllerApi;
 import com.doctor.service.api.DoctorServiceApi;
+import com.opentok.Role;
 import com.opentok.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,14 +36,21 @@ public class ConsultationService implements ConsultationServiceApi {
     private ConsultationSessionHandllerApi consultationSessionHandllerApi;
 
 
-    public void createConsultation(CreateConsultationView createConsultationView){
+    public ConsultationPacientView createConsultation(CreateConsultationView createConsultationView){
         Consultation consultation = createConsultaionConverter.convert(createConsultationView);
-//        List<Doctor> docs = doctorServiceApi.findEligibleDoctors(consultation);
+        List<Doctor> docs = doctorServiceApi.findEligibleDoctors(consultation);
         Session session = consultationSessionHandllerApi.createSession();
+
         consultation.setSessionId(session.getSessionId());
         consultationRepository.deleteAll();
         consultationRepository.saveAndFlush(consultation);
+        ConsultationPacientView pacientView = new ConsultationPacientView();
+        pacientView.setSessionId(session.getSessionId());
+        pacientView.setAvailableDoctors(docs);
+        pacientView.setDocotrToken(consultationSessionHandllerApi.generateToken(session, Role.MODERATOR));
+        pacientView.setPacientToken(consultationSessionHandllerApi.generateToken(session, Role.MODERATOR));
         System.out.println("crates session : " + consultation.getSessionId());
+        return pacientView;
     }
 
     @Override
@@ -50,7 +59,7 @@ public class ConsultationService implements ConsultationServiceApi {
         if (opConsultaion.isPresent()){
             return opConsultaion.get();
         }else {
-            throw new EntityNotFoundException("No consultation wit id : " + id);
+            throw new EntityNotFoundException("No consultation with id : " + id);
         }
     }
 

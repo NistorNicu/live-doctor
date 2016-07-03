@@ -1,6 +1,7 @@
 package com.doctor.controller;
 
 import com.doctor.entity.Consultation;
+import com.doctor.entity.view.ConsultationPacientView;
 import com.doctor.entity.view.CreateConsultationView;
 import com.doctor.service.api.ConsultationServiceApi;
 import com.doctor.service.api.ConsultationSessionHandllerApi;
@@ -30,8 +31,8 @@ public class ConsultationController {
 
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    void createConsultation(@RequestBody CreateConsultationView createConsultationView){
-        consultationServiceApi.createConsultation(createConsultationView);
+    ConsultationPacientView createConsultation(@RequestBody CreateConsultationView createConsultationView){
+        return consultationServiceApi.createConsultation(createConsultationView);
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)

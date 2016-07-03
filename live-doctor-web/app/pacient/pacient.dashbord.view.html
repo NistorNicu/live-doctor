@@ -20,6 +20,21 @@
 
     <!--<input type="button" ng-click="startPublish()" value="Publish">-->
 </div>
+<div class="row" ng-show="availableDoctors">
+    <div class="text-center col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3  col-xs-8 col-xs-offset-2">
+        <h1 class="text-success"><em>Available doctors</em></h1>
+        <br>
+        <div  >
+            <div class="list-group">
+                <p  ng-repeat="doctor in availableDoctors" class="list-group-item active" ng-click="sendNotification(doctor.id)">
+                    {{doctor.name}} from {{doctor.country.name}}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!--<input type="button" ng-click="startPublish()" value="Publish">-->
+</div>
 
 
 

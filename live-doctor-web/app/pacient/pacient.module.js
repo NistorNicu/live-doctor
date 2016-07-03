@@ -10,7 +10,7 @@ angular.module('livedoctorapp.pacient', ['ngRoute'])
 
     }])
 
-    .controller('PacientEnterController', ['$scope', '$http', "appConstants", '$location', '$rootScope', function ($scope, $http, appConstants, $location, $rootScope) {
+    .controller('PacientEnterController', ['$scope', '$http', "appConstants", '$location', '$rootScope', 'localStorageService', function ($scope, $http, appConstants, $location, $rootScope, localStorageService) {
         var loadResource = function (resoursePath, containerModel) {
             $http.get(appConstants.rootUrl + resoursePath,
                 {
@@ -29,6 +29,7 @@ angular.module('livedoctorapp.pacient', ['ngRoute'])
 
         $scope.signin = function(userId){
             $rootScope.loggedPacientId = userId;
+            localStorageService.set("loggedPacientId", userId);
             $location.path("pacient/dashbord");
         };
 
@@ -41,6 +42,7 @@ angular.module('livedoctorapp.pacient', ['ngRoute'])
                 }).then(function succes(response) {
                 console.log(response.data);
                 $rootScope.loggedPacientId = response.data.id;
+                localStorageService.set("loggedPacientId", response.data.id);
                 $location.path("pacient/dashbord");
             }, function errorFn(error) {
                 console.log(error);

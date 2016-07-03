@@ -1,5 +1,6 @@
 package com.doctor.service.api;
 
+import com.opentok.Role;
 import com.opentok.Session;
 import com.opentok.exception.OpenTokException;
 
@@ -8,4 +9,5 @@ import com.opentok.exception.OpenTokException;
  */
 public interface ConsultationSessionHandllerApi {
     Session createSession();
+    String generateToken(Session session, Role role);
 }

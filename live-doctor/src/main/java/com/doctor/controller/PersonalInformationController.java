@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by Nicu on 6/16/2016.
  */
-@CrossOrigin
+//@CrossOrigin
 @RestController
 @RequestMapping(path = "/info")
 public class PersonalInformationController {
